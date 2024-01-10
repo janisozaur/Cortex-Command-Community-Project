@@ -65,6 +65,9 @@ jobs:
           sudo apt-get install --no-install-recommends wget liballegro4-dev libloadpng4-dev libflac++-dev luajit-5.1-dev liblua5.2-dev libminizip-dev liblz4-dev libpng++-dev libx11-dev libboost-dev libtbb-dev libsdl2-dev libsdl2-image-dev libopengl-dev libfuse2 ninja-build
           sudo pip install meson
 
+      - name: ccache
+        uses: hendrikmuhs/ccache-action@v1.2
+
       - name: Set Version
         if: ${{inputs.new_release_version}}
         uses: ./.github/actions/set_version
@@ -146,6 +149,9 @@ jobs:
         with:
           new_release_version: ${{inputs.new_release_version}}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: ccache
+        uses: hendrikmuhs/ccache-action@v1.2
 
       - name: Setup Meson
         env:
