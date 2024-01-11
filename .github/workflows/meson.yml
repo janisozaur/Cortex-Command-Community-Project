@@ -75,20 +75,14 @@ jobs:
         uses: ./.github/actions/set_version
         with:
           new_release_version: ${{inputs.new_release_version}}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_}}
 
-      - name: print paths
-        env:
-          CC: "gcc"
-          CXX: "g++"
+      - name: Set ccache sloppiness
         run: |
-          set -x
-          update-ccache-symlinks
-          which -a gcc
-          which -a g++
-          which -a ccache
-          dpkg -L ccache
-          printenv
+          # This instructs ccache to ignore possible __TIME__, __DATE__ and __TIMESTAMP__ macros
+          # for PCHs, but the project contains none of those and using them is inadvised, as they
+          # break reproducible builds. Setting this greatly improves cache hit ratio.
+          ccache --set-config=sloppiness=time_macros
 
       - name: Setup Meson
         env:
@@ -170,16 +164,12 @@ jobs:
         with:
           key: ${{ github.job }}-${{ matrix.os }}
 
-      - name: print paths
-        env:
-          CC: "gcc-${{env.GCC_VERSION}}"
-          CXX: "g++-${{env.GCC_VERSION}}"
+      - name: Set ccache sloppiness
         run: |
-          set -x
-          which -a ${{ env.CC }}
-          which -a ${{ env.CXX }}
-          which -a ccache
-          printenv || true
+          # This instructs ccache to ignore possible __TIME__, __DATE__ and __TIMESTAMP__ macros
+          # for PCHs, but the project contains none of those and using them is inadvised, as they
+          # break reproducible builds. Setting this greatly improves cache hit ratio.
+          ccache --set-config=sloppiness=time_macros
 
       - name: Setup Meson
         env:
