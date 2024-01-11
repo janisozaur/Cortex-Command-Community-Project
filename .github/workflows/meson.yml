@@ -82,7 +82,7 @@ jobs:
           # This instructs ccache to ignore possible __TIME__, __DATE__ and __TIMESTAMP__ macros
           # for PCHs, but the project contains none of those and using them is inadvised, as they
           # break reproducible builds. Setting this greatly improves cache hit ratio.
-          ccache --set-config=sloppiness=time_macros
+          ccache --set-config=sloppiness=pch_defines,time_macros
 
       - name: Setup Meson
         env:
@@ -180,7 +180,7 @@ jobs:
           # This instructs ccache to ignore possible __TIME__, __DATE__ and __TIMESTAMP__ macros
           # for PCHs, but the project contains none of those and using them is inadvised, as they
           # break reproducible builds. Setting this greatly improves cache hit ratio.
-          ccache --set-config=sloppiness=time_macros
+          ccache --set-config=sloppiness=pch_defines,time_macros
 
       - name: Setup Meson
         env:
