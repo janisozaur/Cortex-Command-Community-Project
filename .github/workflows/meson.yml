@@ -102,8 +102,19 @@ jobs:
         env:
           CC: "ccache gcc"
           CXX: "ccache g++"
+          CCACHE_DEBUGDIR: ccache-debug
+          CCACHE_DEBUG: 1
         run: |
           meson compile -C build
+      - uses: actions/upload-artifact@v4
+        with:
+          # Name of the artifact to upload.
+          # Optional. Default is 'artifact'
+          name: ccache_debug_${{ matrix.os }}
+
+          # A file, directory or wildcard pattern that describes what to upload
+          # Required.
+          path: ccache-debug
 
       - name: Create AppDir
         if: ${{inputs.upload_artefacts}}
@@ -197,8 +208,19 @@ jobs:
           CC: "ccache gcc-${{env.GCC_VERSION}}"
           CXX: "ccache g++-${{env.GCC_VERSION}}"
           LDFLAGS: "-static-libgcc -static-libstdc++"
+          CCACHE_DEBUGDIR: ccache-debug
+          CCACHE_DEBUG: 1
         run: |
           meson compile -C build
+      - uses: actions/upload-artifact@v4
+        with:
+          # Name of the artifact to upload.
+          # Optional. Default is 'artifact'
+          name: ccache_debug_${{ matrix.os }}
+
+          # A file, directory or wildcard pattern that describes what to upload
+          # Required.
+          path: ccache-debug
 
       - name: Create App Bundle
         if: ${{inputs.upload_artefacts}}
