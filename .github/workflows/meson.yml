@@ -77,6 +77,17 @@ jobs:
           new_release_version: ${{inputs.new_release_version}}
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: print paths
+        env:
+          CC: "gcc"
+          CXX: "g++"
+        run: |
+          which -a gcc
+          which -a g++
+          which -a ccache
+          dpkg -L ccache
+          printenv
+
       - name: Setup Meson
         env:
           CC: "gcc"
