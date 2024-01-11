@@ -82,6 +82,8 @@ jobs:
           CC: "gcc"
           CXX: "g++"
         run: |
+          set -x
+          update-ccache-symlink
           which -a gcc
           which -a g++
           which -a ccache
@@ -167,6 +169,17 @@ jobs:
         uses: hendrikmuhs/ccache-action@v1.2
         with:
           key: ${{ github.job }}-${{ matrix.os }}
+
+      - name: print paths
+        env:
+          CC: "gcc"
+          CXX: "g++"
+        run: |
+          set -x
+          which -a gcc
+          which -a g++
+          which -a ccache
+          printenv || true
 
       - name: Setup Meson
         env:
