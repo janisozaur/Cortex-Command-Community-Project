@@ -3,7 +3,7 @@
 layout (location = 0) in vec2 rteVertexPosition;
 layout (location = 1) in vec2 rteTexUV;
 
-out vec2 textureUV;
+out highp vec2 textureUV;
 
 uniform mat4 rteTransform;
 uniform mat4 rteProjection;

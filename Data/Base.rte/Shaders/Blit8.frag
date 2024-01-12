@@ -1,15 +1,15 @@
 //Blit8.frag
 #version 300 es
 
-precision mediump float;
-precision mediump usampler2D;
+precision highp float;
+precision highp usampler2D;
 
-in vec2 textureUV;
+in highp vec2 textureUV;
 
-out vec4 FragColor;
+out highp vec4 FragColor;
 
-uniform sampler2D rteTexture;
-uniform sampler2D rtePalette;
+uniform highp sampler2D rteTexture;
+uniform highp sampler2D rtePalette;
 
 void main()
 {
