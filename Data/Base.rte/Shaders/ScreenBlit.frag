@@ -1,4 +1,7 @@
-#version 330 core
+#version 300 es
+
+precision mediump float;
+precision mediump usampler2D;
 
 in vec2 textureUV;
 
@@ -20,5 +23,5 @@ void main() {
     vec4 guiColor = texture2DAA(rteGUITexture, textureUV);
     float guiSolid = step(0.00000001, guiColor.r + guiColor.g + guiColor.b);
     float blendRatio = max(guiColor.a, guiSolid);
-    FragColor = (texture2DAA(rteTexture, textureUV) * (1- blendRatio)) + guiColor * blendRatio;
+    FragColor = (texture2DAA(rteTexture, textureUV) * (1.0 - blendRatio)) + guiColor * blendRatio;
 }

@@ -6,7 +6,9 @@
 /// https : // stackoverflow.com/questions/11256470/define-a-macro-to-facilitate-opengl-command-debugging
 ///</summary>
 void CheckOpenGLError(const char *stmt, const char *fname, int line);
-
+#ifndef DEBUG
+#define DEBUG
+#endif
 ///< summary>
 /// Debug macro to be used for all GL calls.
 ///</summary>

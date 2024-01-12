@@ -613,8 +613,8 @@ namespace RTE {
 			return;
 		}
 
-		glBindTexture(GL_TEXTURE_2D, g_WindowMan.GetScreenBufferTexture());
-		glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_UNSIGNED_BYTE, m_ScreenDumpBuffer->line[0]);
+		GL_CHECK(glBindTexture(GL_TEXTURE_2D, g_WindowMan.GetScreenBufferTexture()));
+		GL_CHECK(glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_UNSIGNED_BYTE, m_ScreenDumpBuffer->line[0]));
 
 	}
 
