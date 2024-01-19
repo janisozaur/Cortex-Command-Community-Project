@@ -73,7 +73,7 @@ int AreaPickerGUI::Create(Controller* pController, std::string onlyOfType) {
 	m_pController = pController;
 
 	if (!m_pGUIScreen)
-		m_pGUIScreen = new AllegroScreen(g_FrameMan.GetBackBuffer8());
+		 m_pGUIScreen = new AllegroScreen(g_FrameMan.GetBackBuffer8());
 	if (!m_pGUIInput)
 		m_pGUIInput = new GUIInputWrapper(pController->GetPlayer());
 	if (!m_pGUIController)
