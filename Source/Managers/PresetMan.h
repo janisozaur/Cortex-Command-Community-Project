@@ -8,6 +8,8 @@
 #include "Entity.h"
 #include "Singleton.h"
 
+#include <map>
+
 #define g_PresetMan PresetMan::Instance()
 
 namespace RTE {

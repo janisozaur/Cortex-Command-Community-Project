@@ -2,6 +2,10 @@
 
 #include "Serializable.h"
 
+#include <array>
+#include <unordered_map>
+#include <string>
+
 namespace FMOD {
 	class Sound;
 }

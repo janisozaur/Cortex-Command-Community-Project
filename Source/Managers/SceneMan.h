@@ -13,6 +13,8 @@
 
 #include "ActivityMan.h"
 
+#include <map>
+
 #define g_SceneMan SceneMan::Instance()
 
 namespace RTE {

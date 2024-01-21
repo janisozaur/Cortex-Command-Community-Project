@@ -10,6 +10,8 @@
 #include "Activity.h"
 #include "PathFinder.h"
 
+#include <map>
+
 namespace RTE {
 
 	class ContentFile;

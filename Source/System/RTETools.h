@@ -5,6 +5,9 @@
 #include "RTEError.h"
 #include "Constants.h"
 
+#include <random>
+#include <memory>
+
 namespace RTE {
 
 	class Vector;

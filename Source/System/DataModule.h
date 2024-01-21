@@ -3,6 +3,12 @@
 #include "ContentFile.h"
 #include "Constants.h"
 
+#include <array>
+#include <list>
+#include <string>
+#include <string_view>
+#include <unordered_map>
+
 // struct DATAFILE; // DataFile loading not implemented.
 struct BITMAP;
 

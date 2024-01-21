@@ -8,6 +8,8 @@
 #include "Attachable.h"
 #include "Actor.h"
 
+#include <unordered_map>
+
 namespace RTE {
 
 	enum HeldDeviceType {

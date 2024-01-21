@@ -10,6 +10,8 @@
 #include "Actor.h"
 #include "SLTerrain.h"
 #include "PieMenu.h"
+#include "Serializable.h"
+#include "System.h"
 
 #include "Base64/base64.h"
 #include "tracy/Tracy.hpp"

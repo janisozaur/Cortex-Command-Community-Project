@@ -3,6 +3,7 @@
 #include "ContentFile.h"
 #include "Timer.h"
 #include "Box.h"
+#include "Hash.h"
 
 #define g_FrameMan FrameMan::Instance()
 

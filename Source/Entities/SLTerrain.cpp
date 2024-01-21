@@ -9,6 +9,8 @@
 #include "DataModule.h"
 #include "PresetMan.h"
 
+#include <execution>
+
 using namespace RTE;
 
 ConcreteClassInfo(SLTerrain, SceneLayer, 0);

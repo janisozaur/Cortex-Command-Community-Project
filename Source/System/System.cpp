@@ -5,6 +5,9 @@
 
 #include "RTEError.h"
 
+// Convenience macro to not have to write this out.
+#define _LINUX_OR_MACOSX_ (__unix__ || (__APPLE__ && __MACH__))
+
 #ifdef _WIN32
 #include "Windows.h"
 #elif defined _LINUX_OR_MACOSX_
@@ -15,6 +18,11 @@
 #ifdef __APPLE__
 #include <CoreFoundation/CoreFoundation.h>
 #endif
+
+#include <algorithm>
+#include <fstream>
+#include <iostream>
+#include <regex>
 
 using namespace RTE;
 
