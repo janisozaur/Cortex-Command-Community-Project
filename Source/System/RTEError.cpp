@@ -14,7 +14,11 @@
 #include "RTEStackTrace.h"
 #endif
 
+#include <array>
+#include <exception>
 #include <regex>
+#include <utility>
+#include <vector>
 
 using namespace RTE;
 

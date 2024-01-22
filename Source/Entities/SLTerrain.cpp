@@ -9,6 +9,7 @@
 #include "DataModule.h"
 #include "PresetMan.h"
 
+#include <array>
 #include <execution>
 
 using namespace RTE;

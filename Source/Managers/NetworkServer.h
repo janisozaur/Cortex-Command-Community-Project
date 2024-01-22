@@ -10,9 +10,12 @@
 #include "Singleton.h"
 #include "NetworkMessages.h"
 
+#include <array>
+#include <memory>
 #include <mutex>
 #include <thread>
 #include <queue>
+#include <vector>
 
 #define g_NetworkServer NetworkServer::Instance()
 

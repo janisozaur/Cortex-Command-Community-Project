@@ -5,6 +5,9 @@
 
 #include <atomic>
 #include <list>
+#include <memory>
+#include <functional>
+#include <vector>
 
 using namespace micropather;
 

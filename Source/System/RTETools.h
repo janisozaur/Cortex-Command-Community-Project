@@ -7,6 +7,8 @@
 
 #include <random>
 #include <memory>
+#include <string_view>
+#include <type_traits>
 
 namespace RTE {
 

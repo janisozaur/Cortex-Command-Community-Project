@@ -3,6 +3,7 @@
 #include "Singleton.h"
 #include "Timer.h"
 
+#include <array>
 #include <atomic>
 #include <unordered_map>
 #include <memory>

@@ -16,6 +16,8 @@
 #include "Base64/base64.h"
 #include "tracy/Tracy.hpp"
 
+#include <array>
+
 using namespace RTE;
 
 AbstractClassInfo(MovableObject, SceneObject);
