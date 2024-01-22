@@ -18,6 +18,8 @@
 /// Cortex Command Community Project Discord - https://discord.gg/TSU6StNQUG
 /// </summary>
 
+#include "windows_h_filters.h"
+
 #include "allegro.h"
 #include "SDL.h"
 
