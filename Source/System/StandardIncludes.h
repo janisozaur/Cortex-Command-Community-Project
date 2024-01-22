@@ -4,8 +4,6 @@
 #define _HAS_AUTO_PTR_ETC 1
 #define _LIBCPP_ENABLE_CXX17_REMOVED_AUTO_PTR
 
-#include "windows_h_filters.h"
-
 // Inclusion of relevant C++ Standard Library headers.
 #include <cstdlib>
 #include <cstdarg>
