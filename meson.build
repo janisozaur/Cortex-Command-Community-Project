@@ -42,6 +42,12 @@ if compiler.get_argument_syntax()== 'gcc' # used for gcc compatible compilers
   # Build against system libraries on linux
   message('gcc detected')
 
+  lld = find_program('lld', required : false)
+  if lld.found()
+    message('Detected lld, using it for linking')
+    link_args += ['-fuse-ld=lld']
+  endif
+
   if host_machine.system() == 'linux'
     build_rpath = '$ORIGIN:$ORIGIN/../external/lib/linux/x86_64' # Set RUNPATH so that CCCP can find libfmod.so without needing to set LD_LIBRARY_PATH
   elif host_machine.system()=='darwin'
