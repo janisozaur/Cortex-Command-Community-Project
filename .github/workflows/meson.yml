@@ -77,13 +77,6 @@ jobs:
           new_release_version: ${{inputs.new_release_version}}
           github_token: ${{ secrets.GITHUB_}}
 
-      - name: Set ccache sloppiness
-        run: |
-          # This instructs ccache to ignore possible __TIME__, __DATE__ and __TIMESTAMP__ macros
-          # for PCHs, but the project contains none of those and using them is inadvised, as they
-          # break reproducible builds. Setting this greatly improves cache hit ratio.
-          ccache --set-config=sloppiness=pch_defines,time_macros
-
       - name: Setup Meson
         env:
           CC: "ccache gcc"
@@ -174,13 +167,6 @@ jobs:
         uses: hendrikmuhs/ccache-action@v1.2
         with:
           key: ${{ github.job }}-${{ matrix.os }}
-
-      - name: Set ccache sloppiness
-        run: |
-          # This instructs ccache to ignore possible __TIME__, __DATE__ and __TIMESTAMP__ macros
-          # for PCHs, but the project contains none of those and using them is inadvised, as they
-          # break reproducible builds. Setting this greatly improves cache hit ratio.
-          ccache --set-config=sloppiness=pch_defines,time_macros
 
       - name: Setup Meson
         env:
