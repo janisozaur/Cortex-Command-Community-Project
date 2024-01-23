@@ -95,19 +95,8 @@ jobs:
         env:
           CC: "ccache gcc"
           CXX: "ccache g++"
-          CCACHE_DEBUGDIR: ccache-debug
-          CCACHE_DEBUG: 1
         run: |
           meson compile -C build
-      - uses: actions/upload-artifact@v4
-        with:
-          # Name of the artifact to upload.
-          # Optional. Default is 'artifact'
-          name: ccache_debug_${{ matrix.os }}
-
-          # A file, directory or wildcard pattern that describes what to upload
-          # Required.
-          path: build/ccache-debug
 
       - name: Create AppDir
         if: ${{inputs.upload_artefacts}}
@@ -163,6 +152,9 @@ jobs:
           new_release_version: ${{inputs.new_release_version}}
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
+      # Note: macos-11 is too old to have precompiled ccache binaries, it gets built from source.
+      #       It's still a net win, as setting up ccache takes 4m51s, the CortexCommand rebuild takes less than a minute in most cases vs 8 minutes of rebuild when using PCH
+      #       This should become a non-issue when GitHub Actions updates to newer macos version.
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
         with:
@@ -194,19 +186,8 @@ jobs:
           CC: "ccache gcc-${{env.GCC_VERSION}}"
           CXX: "ccache g++-${{env.GCC_VERSION}}"
           LDFLAGS: "-static-libgcc -static-libstdc++"
-          CCACHE_DEBUGDIR: ccache-debug
-          CCACHE_DEBUG: 1
         run: |
           meson compile -C build
-      - uses: actions/upload-artifact@v4
-        with:
-          # Name of the artifact to upload.
-          # Optional. Default is 'artifact'
-          name: ccache_debug_${{ matrix.os }}
-
-          # A file, directory or wildcard pattern that describes what to upload
-          # Required.
-          path: build/ccache-debug
 
       - name: Create App Bundle
         if: ${{inputs.upload_artefacts}}
